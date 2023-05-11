@@ -2,11 +2,11 @@
 
 namespace TravelManagement.Domain.ValueObjects;
 
-public class TravelerItem
+public record TravelerItem
 {
     public string Name { get; }
     public uint Quantity { get;  }
-    public bool IsTaken { get; }
+    public bool IsTaken { get; init; }
 
     public TravelerItem(string name , uint quantity, bool isTaken = false)
     {

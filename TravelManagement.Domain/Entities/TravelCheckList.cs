@@ -1,8 +1,9 @@
 ﻿using TravelManagement.Domain.ValueObjects;
+using TravelManagement.Shared.Abstractions.Domain;
 
 namespace TravelManagement.Domain.Entities;
 
-public class TravelCheckList
+public class TravelCheckList: AggregateRoot<TravelerCheckListId>
 {
     #region Constructor
 
