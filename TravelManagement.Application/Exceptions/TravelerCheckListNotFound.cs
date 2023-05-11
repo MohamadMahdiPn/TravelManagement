@@ -8,4 +8,4 @@ public class TravelerCheckListNotFound : TravelerCheckListException
 
     public TravelerCheckListNotFound(Guid id) : base($"Traveler CheckList list with ID '{id}' was not found.")
         => Id = id;
-}s
+}
