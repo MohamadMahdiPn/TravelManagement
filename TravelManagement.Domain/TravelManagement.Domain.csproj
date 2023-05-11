@@ -11,6 +11,8 @@
     <Folder Include="Exceptions\" />
     <Folder Include="Consts\" />
     <Folder Include="Factories\" />
+    <Folder Include="Events\" />
+    <Folder Include="Repositories\" />
     <Folder Include="Policies\Gender\" />
     <Folder Include="Policies\Temperature\" />
   </ItemGroup>

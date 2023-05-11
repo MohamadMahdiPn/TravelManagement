@@ -1,4 +1,5 @@
-﻿using TravelManagement.Domain.Exceptions;
+﻿using TravelManagement.Domain.Events;
+using TravelManagement.Domain.Exceptions;
 using TravelManagement.Domain.ValueObjects;
 using TravelManagement.Shared.Abstractions.Domain;
 
@@ -37,7 +38,7 @@ public class TravelCheckList: AggregateRoot<TravelerCheckListId>
 
     private readonly LinkedList<TravelerItem> _items = new ();
 
-    #region Constructor
+    #region Functions
 
     public void AddItem(TravelerItem item)
     {
@@ -48,6 +49,7 @@ public class TravelCheckList: AggregateRoot<TravelerCheckListId>
         }
 
         _items.AddLast(item);
+        AddEvent(new TravelerItemAdded(this,item));
     }
 
     public void AddItems(IEnumerable<TravelerItem> items)
@@ -63,6 +65,7 @@ public class TravelCheckList: AggregateRoot<TravelerCheckListId>
         var item = GetItem(itemName);
         var travelerItem = item with{ IsTaken = true};
         _items.Find(item).Value = travelerItem;
+        AddEvent(new TravelerItemTaken(this, item));
     }
 
     private TravelerItem GetItem(string itemName)
@@ -79,10 +82,12 @@ public class TravelCheckList: AggregateRoot<TravelerCheckListId>
     {
         var item = GetItem(itemName);
         _items.Remove(item);
+        AddEvent(new TravelerItemRemoved(this, item));
     }
 
 
 
 
     #endregion
+
 }
