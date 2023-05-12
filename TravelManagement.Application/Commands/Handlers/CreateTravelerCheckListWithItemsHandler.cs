@@ -12,22 +12,27 @@ public class CreateTravelerCheckListWithItemsHandler : ICommandHandler<CreateTra
     private readonly ITravelerCheckListRepository _repository;
     private readonly ITravelerCheckListFactory _factory;
     private readonly IWeatherService _weatherService;
-   
+   private readonly ITravelerCheckListReadService _travelerCheckListReadService;
 
 
 
     public CreateTravelerCheckListWithItemsHandler(ITravelerCheckListRepository repository, ITravelerCheckListFactory factory,
-        IWeatherService weatherService)
+        IWeatherService weatherService, ITravelerCheckListReadService travelerCheckListReadService)
     {
         _repository = repository;
         _factory = factory;
         _weatherService = weatherService;
-        
+        _travelerCheckListReadService = travelerCheckListReadService;
     }
 
     public async Task HandleAsync(CreateTravelerCheckListWithItems command)
     {
         var (id, name, days, gender, destinationWriteModel) = command;
+
+        if (await _travelerCheckListReadService.ExistsByNameAsync(name))
+        {
+            throw new TravelerCheckListAlreadyExistsException(name);
+        }
 
 
         var destination = new TravelerCheckListDestination(destinationWriteModel.City, destinationWriteModel.Country);
