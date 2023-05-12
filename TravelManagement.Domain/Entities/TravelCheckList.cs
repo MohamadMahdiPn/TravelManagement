@@ -5,20 +5,20 @@ using TravelManagement.Shared.Abstractions.Domain;
 
 namespace TravelManagement.Domain.Entities;
 
-public class TravelCheckList: AggregateRoot<TravelerCheckListId>
+public class TravelCheckList: AggregateRoot<TravelCheckListId>
 {
     #region Constructor
 
-     internal TravelCheckList(TravelerCheckListId id, TravelerCheckListName name,
-        TravelerCheckListDestination destination)
+     internal TravelCheckList(TravelCheckListId id, TravelCheckListName name,
+        TravelCheckListDestination destination)
     {
         Id=id;
         name = _name;
         destination = _destination;
     }
 
-    public TravelCheckList(TravelerCheckListId id , 
-        TravelerCheckListName name , TravelerCheckListDestination destination , LinkedList<TravelerItem> items)
+    public TravelCheckList(TravelCheckListId id , 
+        TravelCheckListName name , TravelCheckListDestination destination , LinkedList<TravelerItem> items)
         :this(id , name ,destination)
 
     {
@@ -32,9 +32,9 @@ public class TravelCheckList: AggregateRoot<TravelerCheckListId>
 
     #endregion
    
-    public TravelerCheckListId Id { get; private set; }
-    private TravelerCheckListName _name;
-    private TravelerCheckListDestination _destination;
+    public TravelCheckListId Id { get; private set; }
+    private TravelCheckListName _name;
+    private TravelCheckListDestination _destination;
 
     private readonly LinkedList<TravelerItem> _items = new ();
 

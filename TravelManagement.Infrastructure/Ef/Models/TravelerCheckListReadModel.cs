@@ -1,6 +1,6 @@
 ﻿namespace TravelManagement.Infrastructure.Ef.Models;
 
-internal class TravelerCheckListReadModel
+internal class TravelCheckListReadModel
 {
     public Guid Id { get; set; }
     public int Version { get; set; }

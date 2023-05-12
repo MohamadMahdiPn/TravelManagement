@@ -2,10 +2,10 @@
 
 namespace TravelManagement.Application.Exceptions;
 
-public class TravelerCheckListNotFound : TravelerCheckListException
+public class TravelCheckListNotFound : TravelCheckListException
 {
     public Guid Id { get; }
 
-    public TravelerCheckListNotFound(Guid id) : base($"Traveler CheckList list with ID '{id}' was not found.")
+    public TravelCheckListNotFound(Guid id) : base($"Traveler CheckList list with ID '{id}' was not found.")
         => Id = id;
 }

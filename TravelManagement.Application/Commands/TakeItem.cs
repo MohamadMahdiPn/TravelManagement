@@ -2,4 +2,4 @@
 
 namespace TravelManagement.Application.Commands;
 
-public record TakeItem(Guid TravelerCheckListId, string Name) : ICommand;
+public record TakeItem(Guid TravelCheckListId, string Name) : ICommand;

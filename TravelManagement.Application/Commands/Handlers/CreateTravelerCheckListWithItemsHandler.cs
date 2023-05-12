@@ -7,35 +7,35 @@ using TravelManagement.Shared.Abstractions.Commands;
 
 namespace TravelManagement.Application.Commands.Handlers;
 
-public class CreateTravelerCheckListWithItemsHandler : ICommandHandler<CreateTravelerCheckListWithItems>
+public class CreateTravelCheckListWithItemsHandler : ICommandHandler<CreateTravelCheckListWithItems>
 {
-    private readonly ITravelerCheckListRepository _repository;
-    private readonly ITravelerCheckListFactory _factory;
+    private readonly ITravelCheckListRepository _repository;
+    private readonly ITravelCheckListFactory _factory;
     private readonly IWeatherService _weatherService;
-   private readonly ITravelerCheckListReadService _travelerCheckListReadService;
+   private readonly ITravelCheckListReadService _TravelCheckListReadService;
 
 
 
-    public CreateTravelerCheckListWithItemsHandler(ITravelerCheckListRepository repository, ITravelerCheckListFactory factory,
-        IWeatherService weatherService, ITravelerCheckListReadService travelerCheckListReadService)
+    public CreateTravelCheckListWithItemsHandler(ITravelCheckListRepository repository, ITravelCheckListFactory factory,
+        IWeatherService weatherService, ITravelCheckListReadService TravelCheckListReadService)
     {
         _repository = repository;
         _factory = factory;
         _weatherService = weatherService;
-        _travelerCheckListReadService = travelerCheckListReadService;
+        _TravelCheckListReadService = TravelCheckListReadService;
     }
 
-    public async Task HandleAsync(CreateTravelerCheckListWithItems command)
+    public async Task HandleAsync(CreateTravelCheckListWithItems command)
     {
         var (id, name, days, gender, destinationWriteModel) = command;
 
-        if (await _travelerCheckListReadService.ExistsByNameAsync(name))
+        if (await _TravelCheckListReadService.ExistsByNameAsync(name))
         {
-            throw new TravelerCheckListAlreadyExistsException(name);
+            throw new TravelCheckListAlreadyExistsException(name);
         }
 
 
-        var destination = new TravelerCheckListDestination(destinationWriteModel.City, destinationWriteModel.Country);
+        var destination = new TravelCheckListDestination(destinationWriteModel.City, destinationWriteModel.Country);
         var weather = await _weatherService.GetWeatherAsync(destination);
 
         if (weather is null)
@@ -43,10 +43,10 @@ public class CreateTravelerCheckListWithItemsHandler : ICommandHandler<CreateTra
             throw new MissingDestinationWeatherException(destination);
         }
 
-        var travelerCheckList = _factory.CreateWithDefaultItems(id, name, days, gender, weather.Temperature,
+        var TravelCheckList = _factory.CreateWithDefaultItems(id, name, days, gender, weather.Temperature,
             destination);
 
-        await _repository.AddAsync(travelerCheckList);
+        await _repository.AddAsync(TravelCheckList);
     }
 
 }

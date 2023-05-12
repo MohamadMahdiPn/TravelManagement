@@ -13,7 +13,7 @@ internal sealed class ExceptionMiddleware : IMiddleware
         {
             await next(context);
         }
-        catch (TravelerCheckListException ex)
+        catch (TravelCheckListException ex)
         {
             context.Response.StatusCode = 400;
             context.Response.Headers.Add("content-type", "application/json");

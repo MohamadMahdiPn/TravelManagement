@@ -5,20 +5,20 @@ using TravelManagement.Domain.ValueObjects;
 
 namespace TravelManagement.Domain.Factories;
 
-public sealed class TravelerCheckListFactory : ITravelerCheckListFactory
+public sealed class TravelCheckListFactory : ITravelCheckListFactory
 {
 
     private readonly IEnumerable<ITravelerItemsPolicy> _policies;
 
 
-    public TravelerCheckListFactory(IEnumerable<ITravelerItemsPolicy> policies)
+    public TravelCheckListFactory(IEnumerable<ITravelerItemsPolicy> policies)
         => _policies = policies;
 
-    public TravelCheckList Create(TravelerCheckListId id, TravelerCheckListName name, TravelerCheckListDestination destination)
+    public TravelCheckList Create(TravelCheckListId id, TravelCheckListName name, TravelCheckListDestination destination)
         => new(id, name, destination);
 
-    public TravelCheckList CreateWithDefaultItems(TravelerCheckListId id, TravelerCheckListName name, TravelDays days, Gender gender,
-        Temperature temperature, TravelerCheckListDestination destination)
+    public TravelCheckList CreateWithDefaultItems(TravelCheckListId id, TravelCheckListName name, TravelDays days, Gender gender,
+        Temperature temperature, TravelCheckListDestination destination)
     {
         var data = new PolicyData(days, gender, temperature, destination);
         var applicablePolicies = _policies.Where(p => p.IsApplicable(data));

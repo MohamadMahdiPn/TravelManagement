@@ -1,7 +1,7 @@
 ﻿using TravelManagement.Shared.Abstractions.Exceptions;
 
 namespace TravelManagement.Domain.Exceptions;
-internal class InvalidTravelDaysException : TravelerCheckListException
+internal class InvalidTravelDaysException : TravelCheckListException
 {
     public ushort Days { get; }
 

@@ -7,18 +7,18 @@ namespace TravelManagement.Application.Commands.Handlers;
 
 internal sealed class AddTravelerItemHandler : ICommandHandler<AddTravelerItem>
 {
-    private readonly ITravelerCheckListRepository _repository;
+    private readonly ITravelCheckListRepository _repository;
 
-    public AddTravelerItemHandler(ITravelerCheckListRepository repository)
+    public AddTravelerItemHandler(ITravelCheckListRepository repository)
         => _repository = repository;
 
     public async Task HandleAsync(AddTravelerItem command)
     {
-        var travelerCheckingList = await _repository.GetAsync(command.TravelerCheckListId);
+        var travelerCheckingList = await _repository.GetAsync(command.TravelCheckListId);
 
         if (travelerCheckingList is null)
         {
-            throw new TravelerCheckListNotFound(command.TravelerCheckListId);
+            throw new TravelCheckListNotFound(command.TravelCheckListId);
         }
 
         var travelerItem = new TravelerItem(command.Name, command.Quantity);

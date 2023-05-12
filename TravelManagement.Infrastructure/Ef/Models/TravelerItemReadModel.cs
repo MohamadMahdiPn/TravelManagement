@@ -7,5 +7,5 @@ internal class TravelerItemReadModel
     public uint Quantity { get; set; }
     public bool IsTaken { get; set; }
 
-    public TravelerCheckListReadModel TravelerCheckList { get; set; }
+    public TravelCheckListReadModel TravelCheckList { get; set; }
 }

@@ -5,7 +5,7 @@ namespace TravelManagement.Infrastructure.Ef.Queries;
 
 internal static class Extensions
 {
-    public static TravelCheckListDto AsDto(this TravelerCheckListReadModel readModel)
+    public static TravelCheckListDto AsDto(this TravelCheckListReadModel readModel)
         => new()
         {
             Id = readModel.Id,

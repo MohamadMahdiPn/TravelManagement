@@ -1,6 +1,6 @@
 ﻿namespace TravelManagement.Application.Services;
 
-public interface ITravelerCheckListReadService
+public interface ITravelCheckListReadService
 {
     Task<bool> ExistsByNameAsync(string name);
 }

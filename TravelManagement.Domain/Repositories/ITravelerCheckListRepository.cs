@@ -3,10 +3,10 @@ using TravelManagement.Domain.ValueObjects;
 
 namespace TravelManagement.Domain.Repositories;
 
-public interface ITravelerCheckListRepository
+public interface ITravelCheckListRepository
 {
-    Task<TravelCheckList> GetAsync(TravelerCheckListId id);
-    Task AddAsync(TravelCheckList travelerCheckList);
-    Task UpdateAsync(TravelCheckList travelerCheckList);
-    Task DeleteAsync(TravelCheckList travelerCheckList);
+    Task<TravelCheckList> GetAsync(TravelCheckListId id);
+    Task AddAsync(TravelCheckList TravelCheckList);
+    Task UpdateAsync(TravelCheckList TravelCheckList);
+    Task DeleteAsync(TravelCheckList TravelCheckList);
 }

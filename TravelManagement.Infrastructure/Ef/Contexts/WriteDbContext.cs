@@ -10,7 +10,7 @@ namespace TravelManagement.Infrastructure.Ef.Contexts;
 
 internal sealed class WriteDbContext : DbContext
 {
-    public DbSet<TravelCheckList> TravelerCheckLists { get; set; }
+    public DbSet<TravelCheckList> TravelCheckLists { get; set; }
 
 
 
@@ -21,7 +21,7 @@ internal sealed class WriteDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("TravelerCheckList");
+        modelBuilder.HasDefaultSchema("TravelCheckList");
 
         var configuration = new WriteConfiguration();
         modelBuilder.ApplyConfiguration<TravelCheckList>(configuration);

@@ -7,7 +7,7 @@ namespace TravelManagement.Infrastructure.Ef.Contexts;
 
 internal sealed class ReadDbContext : DbContext
 {
-    public DbSet<TravelerCheckListReadModel> TravelerCheckList { get; set; }
+    public DbSet<TravelCheckListReadModel> TravelCheckList { get; set; }
 
 
 
@@ -17,10 +17,10 @@ internal sealed class ReadDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("TravelerCheckList");
+        modelBuilder.HasDefaultSchema("TravelCheckList");
 
         var configuration = new ReadConfiguration();
-        modelBuilder.ApplyConfiguration<TravelerCheckListReadModel>(configuration);
+        modelBuilder.ApplyConfiguration<TravelCheckListReadModel>(configuration);
         modelBuilder.ApplyConfiguration<TravelerItemReadModel>(configuration);
     }
 }

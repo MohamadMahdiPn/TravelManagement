@@ -5,13 +5,13 @@ using TravelManagement.Infrastructure.Ef.Models;
 
 namespace TravelManagement.Infrastructure.Ef.Services;
 
-internal sealed class TravelerCheckListReadService : ITravelerCheckListReadService
+internal sealed class TravelCheckListReadService : ITravelCheckListReadService
 {
-    private readonly DbSet<TravelerCheckListReadModel> _travelerCheckList;
+    private readonly DbSet<TravelCheckListReadModel> _TravelCheckList;
 
-    public TravelerCheckListReadService(ReadDbContext context)
-        => _travelerCheckList = context.TravelerCheckList;
+    public TravelCheckListReadService(ReadDbContext context)
+        => _TravelCheckList = context.TravelCheckList;
 
     public Task<bool> ExistsByNameAsync(string name)
-        => _travelerCheckList.AnyAsync(pl => pl.Name == name);
+        => _TravelCheckList.AnyAsync(pl => pl.Name == name);
 }

@@ -1,8 +1,8 @@
 ﻿namespace TravelManagement.Domain.ValueObjects;
 
-public record TravelerCheckListDestination(string City , string Country)
+public record TravelCheckListDestination(string City , string Country)
 {
-    public static TravelerCheckListDestination Create(string value)
+    public static TravelCheckListDestination Create(string value)
     {
         var splitDestination = value.Split(',');
         return new (splitDestination.First() , splitDestination.Last());

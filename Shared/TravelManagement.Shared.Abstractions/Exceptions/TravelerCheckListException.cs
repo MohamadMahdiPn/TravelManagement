@@ -1,8 +1,8 @@
 ﻿namespace TravelManagement.Shared.Abstractions.Exceptions;
 
-public abstract class TravelerCheckListException:Exception
+public abstract class TravelCheckListException:Exception
 {
-    protected TravelerCheckListException(string message) : base(message)
+    protected TravelCheckListException(string message) : base(message)
     {
 
     }

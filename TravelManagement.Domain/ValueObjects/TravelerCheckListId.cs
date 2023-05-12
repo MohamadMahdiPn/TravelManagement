@@ -3,17 +3,17 @@ using TravelManagement.Shared.Abstractions.Exceptions;
 
 namespace TravelManagement.Domain.ValueObjects;
 
-public record TravelerCheckListId
+public record TravelCheckListId
 {
     public Guid Value { get; }
 
-    public TravelerCheckListId(Guid value)
+    public TravelCheckListId(Guid value)
     {
         if (value == Guid.Empty)
-            throw new TravelerCheckListIdException();
+            throw new TravelCheckListIdException();
         Value = value;
     }
 
-    public static implicit operator Guid(TravelerCheckListId id) =>id.Value;
-    public static implicit operator TravelerCheckListId(Guid id) => new(id);
+    public static implicit operator Guid(TravelCheckListId id) =>id.Value;
+    public static implicit operator TravelCheckListId(Guid id) => new(id);
 }

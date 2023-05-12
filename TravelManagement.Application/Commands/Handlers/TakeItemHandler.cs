@@ -6,22 +6,22 @@ namespace TravelManagement.Application.Commands.Handlers;
 
 internal sealed class TakeItemHandler : ICommandHandler<TakeItem>
 {
-    private readonly ITravelerCheckListRepository _repository;
+    private readonly ITravelCheckListRepository _repository;
 
-    public TakeItemHandler(ITravelerCheckListRepository repository)
+    public TakeItemHandler(ITravelCheckListRepository repository)
         => _repository = repository;
 
     public async Task HandleAsync(TakeItem command)
     {
-        var travelerCheckList = await _repository.GetAsync(command.TravelerCheckListId);
+        var TravelCheckList = await _repository.GetAsync(command.TravelCheckListId);
 
-        if (travelerCheckList is null)
+        if (TravelCheckList is null)
         {
-            throw new TravelerCheckListNotFound(command.TravelerCheckListId);
+            throw new TravelCheckListNotFound(command.TravelCheckListId);
         }
 
-        travelerCheckList.TakeItem(command.Name);
+        TravelCheckList.TakeItem(command.Name);
 
-        await _repository.UpdateAsync(travelerCheckList);
+        await _repository.UpdateAsync(TravelCheckList);
     }
 }

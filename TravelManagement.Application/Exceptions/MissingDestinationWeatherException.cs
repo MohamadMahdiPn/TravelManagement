@@ -3,11 +3,11 @@ using TravelManagement.Shared.Abstractions.Exceptions;
 
 namespace TravelManagement.Application.Exceptions;
 
-public class MissingDestinationWeatherException : TravelerCheckListException
+public class MissingDestinationWeatherException : TravelCheckListException
 {
-    public TravelerCheckListDestination Destination { get; }
+    public TravelCheckListDestination Destination { get; }
 
-    public MissingDestinationWeatherException(TravelerCheckListDestination destination)
+    public MissingDestinationWeatherException(TravelCheckListDestination destination)
         : base($"Couldn't fetch weather data for Destination '{destination.Country}/{destination.City}'.")
     {
         Destination = destination;

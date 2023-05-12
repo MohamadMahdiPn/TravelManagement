@@ -4,4 +4,4 @@ using TravelManagement.Shared.Abstractions.Domain;
 
 namespace TravelManagement.Domain.Events;
 
-public record TravelerItemRemoved(TravelCheckList TravelerCheckList, TravelerItem TravelerItem) : IDomainEvent;
+public record TravelerItemRemoved(TravelCheckList TravelCheckList, TravelerItem TravelerItem) : IDomainEvent;

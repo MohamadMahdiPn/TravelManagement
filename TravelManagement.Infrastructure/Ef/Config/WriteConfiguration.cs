@@ -12,29 +12,29 @@ internal sealed class WriteConfiguration : IEntityTypeConfiguration<TravelCheckL
     {
         builder.HasKey(pl => pl.Id);
 
-        var destinationConverter = new ValueConverter<TravelerCheckListDestination, string>(l => l.ToString(),
-            l => TravelerCheckListDestination.Create(l));
+        var destinationConverter = new ValueConverter<TravelCheckListDestination, string>(l => l.ToString(),
+            l => TravelCheckListDestination.Create(l));
 
-        var packingListNameConverter = new ValueConverter<TravelerCheckListName, string>(pln => pln.Value,
-            pln => new TravelerCheckListName(pln));
+        var packingListNameConverter = new ValueConverter<TravelCheckListName, string>(pln => pln.Value,
+            pln => new TravelCheckListName(pln));
 
         builder
             .Property(pl => pl.Id)
-            .HasConversion(id => id.Value, id => new TravelerCheckListId(id));
+            .HasConversion(id => id.Value, id => new TravelCheckListId(id));
 
         builder
-            .Property(typeof(TravelerCheckListDestination), "_destination")
+            .Property(typeof(TravelCheckListDestination), "_destination")
             .HasConversion(destinationConverter)
             .HasColumnName("Destination");
 
         builder
-            .Property(typeof(TravelerCheckListName), "_name")
+            .Property(typeof(TravelCheckListName), "_name")
             .HasConversion(packingListNameConverter)
             .HasColumnName("Name");
 
         builder.HasMany(typeof(TravelerItem), "_items");
 
-        builder.ToTable("TravelerCheckList");
+        builder.ToTable("TravelCheckList");
     }
 
     public void Configure(EntityTypeBuilder<TravelerItem> builder)

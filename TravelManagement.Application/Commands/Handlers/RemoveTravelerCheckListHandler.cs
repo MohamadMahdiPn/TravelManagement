@@ -4,22 +4,22 @@ using TravelManagement.Shared.Abstractions.Commands;
 
 namespace TravelManagement.Application.Commands.Handlers;
 
-internal sealed class RemoveTravelerCheckListHandler : ICommandHandler<RemoveTravelerCheckList>
+internal sealed class RemoveTravelCheckListHandler : ICommandHandler<RemoveTravelCheckList>
 {
-    private readonly ITravelerCheckListRepository _repository;
+    private readonly ITravelCheckListRepository _repository;
 
-    public RemoveTravelerCheckListHandler(ITravelerCheckListRepository repository)
+    public RemoveTravelCheckListHandler(ITravelCheckListRepository repository)
         => _repository = repository;
 
-    public async Task HandleAsync(RemoveTravelerCheckList command)
+    public async Task HandleAsync(RemoveTravelCheckList command)
     {
-        var travelerCheckList = await _repository.GetAsync(command.Id);
+        var TravelCheckList = await _repository.GetAsync(command.Id);
 
-        if (travelerCheckList is null)
+        if (TravelCheckList is null)
         {
-            throw new TravelerCheckListNotFound(command.Id);
+            throw new TravelCheckListNotFound(command.Id);
         }
 
-        await _repository.DeleteAsync(travelerCheckList);
+        await _repository.DeleteAsync(TravelCheckList);
     }
 }

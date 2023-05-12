@@ -2,9 +2,9 @@
 
 namespace TravelManagement.Domain.Exceptions;
 
-public class TravelerCheckListIdException: TravelerCheckListException
+public class TravelCheckListIdException: TravelCheckListException
 {
-    public TravelerCheckListIdException():base("traveler checklist Id Cannot be empty")
+    public TravelCheckListIdException():base("traveler checklist Id Cannot be empty")
     {
         
     }

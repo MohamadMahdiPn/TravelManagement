@@ -6,35 +6,35 @@ using TravelManagement.Infrastructure.Ef.Contexts;
 
 namespace TravelManagement.Infrastructure.Ef.Repositories;
 
-internal sealed class TravelerCheckListRepository : ITravelerCheckListRepository
+internal sealed class TravelCheckListRepository : ITravelCheckListRepository
 {
-    private readonly DbSet<TravelCheckList> _travelerCheckList;
+    private readonly DbSet<TravelCheckList> _TravelCheckList;
     private readonly WriteDbContext _writeDbContext;
 
-    public TravelerCheckListRepository(WriteDbContext writeDbContext)
+    public TravelCheckListRepository(WriteDbContext writeDbContext)
     {
-        _travelerCheckList = writeDbContext.TravelerCheckLists;
+        _TravelCheckList = writeDbContext.TravelCheckLists;
         _writeDbContext = writeDbContext;
     }
 
-    public Task<TravelCheckList> GetAsync(TravelerCheckListId id)
-        => _travelerCheckList.Include("_items").SingleOrDefaultAsync(pl => pl.Id == id);
+    public Task<TravelCheckList> GetAsync(TravelCheckListId id)
+        => _TravelCheckList.Include("_items").SingleOrDefaultAsync(pl => pl.Id == id);
 
-    public async Task AddAsync(TravelCheckList travelerCheckList)
+    public async Task AddAsync(TravelCheckList TravelCheckList)
     {
-        await _travelerCheckList.AddAsync(travelerCheckList);
+        await _TravelCheckList.AddAsync(TravelCheckList);
         await _writeDbContext.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(TravelCheckList travelerCheckList)
+    public async Task UpdateAsync(TravelCheckList TravelCheckList)
     {
-        _travelerCheckList.Update(travelerCheckList);
+        _TravelCheckList.Update(TravelCheckList);
         await _writeDbContext.SaveChangesAsync();
     }
 
-    public async Task DeleteAsync(TravelCheckList travelerCheckList)
+    public async Task DeleteAsync(TravelCheckList TravelCheckList)
     {
-        _travelerCheckList.Remove(travelerCheckList);
+        _TravelCheckList.Remove(TravelCheckList);
         await _writeDbContext.SaveChangesAsync();
     }
 }

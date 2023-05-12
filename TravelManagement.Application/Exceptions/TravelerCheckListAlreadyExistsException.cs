@@ -2,11 +2,11 @@
 
 namespace TravelManagement.Application.Exceptions;
 
-public class TravelerCheckListAlreadyExistsException : TravelerCheckListException
+public class TravelCheckListAlreadyExistsException : TravelCheckListException
 {
     public string Name { get; }
 
-    public TravelerCheckListAlreadyExistsException(string name)
+    public TravelCheckListAlreadyExistsException(string name)
         : base($"Traveler Check List with name '{name}' already exists.")
     {
         Name = name;

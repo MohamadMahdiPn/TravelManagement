@@ -4,10 +4,10 @@ using TravelManagement.Domain.ValueObjects;
 
 namespace TravelManagement.Domain.Factories;
 
-public interface ITravelerCheckListFactory
+public interface ITravelCheckListFactory
 {
-    TravelCheckList Create(TravelerCheckListId id, TravelerCheckListName name, TravelerCheckListDestination destination);
+    TravelCheckList Create(TravelCheckListId id, TravelCheckListName name, TravelCheckListDestination destination);
 
-    TravelCheckList CreateWithDefaultItems(TravelerCheckListId id, TravelerCheckListName name, TravelDays days, Gender gender,
-        Temperature temperature, TravelerCheckListDestination destination);
+    TravelCheckList CreateWithDefaultItems(TravelCheckListId id, TravelCheckListName name, TravelDays days, Gender gender,
+        Temperature temperature, TravelCheckListDestination destination);
 }

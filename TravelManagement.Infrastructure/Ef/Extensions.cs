@@ -15,8 +15,8 @@ internal static class Extensions
 {
     public static IServiceCollection AddSqlDb(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<ITravelerCheckListRepository, TravelerCheckListRepository>();
-        services.AddScoped<ITravelerCheckListReadService, TravelerCheckListReadService>();
+        services.AddScoped<ITravelCheckListRepository, TravelCheckListRepository>();
+        services.AddScoped<ITravelCheckListReadService, TravelCheckListReadService>();
 
         var options = configuration.GetOptions<DataBaseOptions>("DataBaseConnectionString");
         services.AddDbContext<ReadDbContext>(ctx =>

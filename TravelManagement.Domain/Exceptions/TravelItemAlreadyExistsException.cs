@@ -2,7 +2,7 @@
 
 namespace TravelManagement.Domain.Exceptions;
 
-public class TravelItemAlreadyExistsException:TravelerCheckListException
+public class TravelItemAlreadyExistsException:TravelCheckListException
 {
     public string ListName { get;  }
     public string ItemName { get; }

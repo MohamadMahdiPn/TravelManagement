@@ -9,15 +9,15 @@ using TravelManagement.Shared.Abstractions.Queries;
 
 namespace TravelManagement.Infrastructure.Queries.Handler;
 
-internal sealed class GetTravelerCheckListHandler : IQueryHandler<GetTravelerCheckList, TravelCheckListDto>
+internal sealed class GetTravelCheckListHandler : IQueryHandler<GetTravelCheckList, TravelCheckListDto>
 {
-    private readonly DbSet<TravelerCheckListReadModel> _TravelerCheckLists;
+    private readonly DbSet<TravelCheckListReadModel> _TravelCheckLists;
 
-    public GetTravelerCheckListHandler(ReadDbContext context)
-        => _TravelerCheckLists = context.TravelerCheckList;
+    public GetTravelCheckListHandler(ReadDbContext context)
+        => _TravelCheckLists = context.TravelCheckList;
 
-    public Task<TravelCheckListDto> HandleAsync(GetTravelerCheckList query)
-        => _TravelerCheckLists
+    public Task<TravelCheckListDto> HandleAsync(GetTravelCheckList query)
+        => _TravelCheckLists
             .Include(pl => pl.Items)
             .Where(pl => pl.Id == query.Id)
             .Select(pl => pl.AsDto())

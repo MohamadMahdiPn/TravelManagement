@@ -2,15 +2,15 @@
 
 namespace TravelManagement.Domain.ValueObjects;
 
-public class TravelerCheckListName
+public class TravelCheckListName
 {
     public string Value { get; }
 
-    public TravelerCheckListName(string value)
+    public TravelCheckListName(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
         {
-            throw new TravelerCheckListNameException();
+            throw new TravelCheckListNameException();
         }
         Value = value;
 
@@ -18,6 +18,6 @@ public class TravelerCheckListName
 
 
 
-    public static implicit  operator string (TravelerCheckListName value) => value.Value;
-    public static implicit  operator TravelerCheckListName(string name) => new (name);
+    public static implicit  operator string (TravelCheckListName value) => value.Value;
+    public static implicit  operator TravelCheckListName(string name) => new (name);
 }

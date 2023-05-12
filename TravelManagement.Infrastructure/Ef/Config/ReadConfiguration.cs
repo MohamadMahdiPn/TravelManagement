@@ -4,11 +4,11 @@ using TravelManagement.Infrastructure.Ef.Models;
 
 namespace TravelManagement.Infrastructure.Ef.Config;
 
-internal sealed class ReadConfiguration : IEntityTypeConfiguration<TravelerCheckListReadModel>, IEntityTypeConfiguration<TravelerItemReadModel>
+internal sealed class ReadConfiguration : IEntityTypeConfiguration<TravelCheckListReadModel>, IEntityTypeConfiguration<TravelerItemReadModel>
 {
-    public void Configure(EntityTypeBuilder<TravelerCheckListReadModel> builder)
+    public void Configure(EntityTypeBuilder<TravelCheckListReadModel> builder)
     {
-        builder.ToTable("TravelerCheckList");
+        builder.ToTable("TravelCheckList");
         builder.HasKey(pl => pl.Id);
 
         builder
@@ -17,7 +17,7 @@ internal sealed class ReadConfiguration : IEntityTypeConfiguration<TravelerCheck
 
         builder
             .HasMany(pl => pl.Items)
-            .WithOne(pi => pi.TravelerCheckList);
+            .WithOne(pi => pi.TravelCheckList);
     }
 
     public void Configure(EntityTypeBuilder<TravelerItemReadModel> builder)

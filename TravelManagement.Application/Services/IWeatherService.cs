@@ -5,5 +5,5 @@ namespace TravelManagement.Application.Services;
 
 public interface IWeatherService
 {
-    Task<WeatherDto> GetWeatherAsync(TravelerCheckListDestination localization);
+    Task<WeatherDto> GetWeatherAsync(TravelCheckListDestination localization);
 }
