@@ -9,9 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{593672
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelManagement.Shared.Abstractions", "Shared\TravelManagement.Shared.Abstractions\TravelManagement.Shared.Abstractions.csproj", "{758F280F-4B4B-48D9-8432-94C058E075AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelManagement.Application", "TravelManagement.Application\TravelManagement.Application.csproj", "{61E30425-25FF-4A7B-A086-9977C522577C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelManagement.Application", "TravelManagement.Application\TravelManagement.Application.csproj", "{61E30425-25FF-4A7B-A086-9977C522577C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelManagement.Api", "TravelManagement.Api\TravelManagement.Api.csproj", "{852D41F5-DB8D-4970-A6F7-87F2A75767F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelManagement.Api", "TravelManagement.Api\TravelManagement.Api.csproj", "{852D41F5-DB8D-4970-A6F7-87F2A75767F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelManagement.Shared", "Shared\TravelManagement.Shared\TravelManagement.Shared.csproj", "{168CC175-04B9-4959-8D1F-D441C90908EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelManagement.Infrastructure", "TravelManagement.Infrastructure\TravelManagement.Infrastructure.csproj", "{8EA88309-C31C-42F9-8157-387EAF526964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +39,21 @@ Global
 		{852D41F5-DB8D-4970-A6F7-87F2A75767F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{852D41F5-DB8D-4970-A6F7-87F2A75767F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{852D41F5-DB8D-4970-A6F7-87F2A75767F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{168CC175-04B9-4959-8D1F-D441C90908EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{168CC175-04B9-4959-8D1F-D441C90908EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{168CC175-04B9-4959-8D1F-D441C90908EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{168CC175-04B9-4959-8D1F-D441C90908EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA88309-C31C-42F9-8157-387EAF526964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA88309-C31C-42F9-8157-387EAF526964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA88309-C31C-42F9-8157-387EAF526964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA88309-C31C-42F9-8157-387EAF526964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{758F280F-4B4B-48D9-8432-94C058E075AE} = {59367238-FCB1-4BD7-9F2F-336F7FDEAB13}
+		{168CC175-04B9-4959-8D1F-D441C90908EB} = {59367238-FCB1-4BD7-9F2F-336F7FDEAB13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2D47554-E5E5-4E8A-8F09-E6A0F8DD964C}

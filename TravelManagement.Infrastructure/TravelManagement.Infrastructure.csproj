@@ -7,13 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Handlers\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Shared\TravelManagement.Shared.Abstractions\TravelManagement.Shared.Abstractions.csproj" />
+    <ProjectReference Include="..\TravelManagement.Application\TravelManagement.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TravelManagement.Domain\TravelManagement.Domain.csproj" />
+    <Folder Include="Ef\Models\" />
   </ItemGroup>
 
 </Project>
