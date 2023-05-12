@@ -18,6 +18,7 @@
     <Folder Include="Ef\Services\" />
     <Folder Include="Ef\Repositories\" />
     <Folder Include="Ef\Options\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
