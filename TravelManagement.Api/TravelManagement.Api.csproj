@@ -11,4 +11,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\TravelManagement.Shared.Abstractions\TravelManagement.Shared.Abstractions.csproj" />
+    <ProjectReference Include="..\Shared\TravelManagement.Shared\TravelManagement.Shared.csproj" />
+    <ProjectReference Include="..\TravelManagement.Application\TravelManagement.Application.csproj" />
+    <ProjectReference Include="..\TravelManagement.Infrastructure\TravelManagement.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
